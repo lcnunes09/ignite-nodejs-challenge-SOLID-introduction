@@ -26,25 +26,30 @@ class UsersRepository implements IUsersRepository {
       admin: false,
       email,
       create_at: new Date(),
+      updated_at: new Date(),
     });
 
     this.users.push(user);
+
+    return user;
   }
 
   findById(id: string): User | undefined {
-    // Complete aqui
+    const user = this.users.find((user) => user.id === id);
+
+    return user;
   }
 
   findByEmail(email: string): User | undefined {
-    // Complete aqui
+    const user = this.users.find((user) => user.email === email);
+
+    return user;
   }
 
-  turnAdmin(receivedUser: User): User {
-    // Complete aqui
-  }
+  turnAdmin(receivedUser: User): User {}
 
   list(): User[] {
-    // Complete aqui
+    return this.users;
   }
 }
 
